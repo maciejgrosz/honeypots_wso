@@ -42,6 +42,11 @@ ingress:
         paths:
           - pathType: Prefix
             path: /
+            backend:
+              service:
+                name: chess-ip
+                port: 
+                  number: 80
   annotations:
     kubernetes.io/ingress.class: nginx
   hosts:
