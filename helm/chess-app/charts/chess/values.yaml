@@ -3,10 +3,10 @@
 # Declare variables to be passed into your templates.
 replicaCount: 1
 image:
-  repository: 183444901630.dkr.ecr.eu-west-1.amazonaws.com/chess_app
+  repository: 644435390668.dkr.ecr.eu-west-2.amazonaws.com/maciej_groszyk_portfolio
   pullPolicy: Always
   # Overrides the image tag whose default is the chart appVersion.
-  tag: "1.0.7"
+  tag: "latest"
 configmap: app-secrets
 imagePullSecrets: []
 nameOverride: ""

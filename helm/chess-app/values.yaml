@@ -6,7 +6,7 @@ image:
   repository: 183444901630.dkr.ecr.eu-west-1.amazonaws.com/chess_app_nginx
   pullPolicy: Always
   # Overrides the image tag whose default is the chart appVersion.
-  tag: "1.0.7"
+  tag: "latest"
 configmap: configmap-nginx
 imagePullSecrets: []
 nameOverride: ""
