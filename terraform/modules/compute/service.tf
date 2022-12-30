@@ -7,12 +7,18 @@ resource "kubernetes_service" "testservice" {
   }
   spec {
     port {
-      port        = 80
-      target_port = 80
+        name = "nginx"
+        port        = 80
+        target_port = 80
     }
     type = "LoadBalancer"
     selector = {
-        app = "chess-app"
+        "app" = "app"
+    }
+    port {
+        name = "cowrie"
+        port = 2222
+        target_port = 2222
     }
   }
 }

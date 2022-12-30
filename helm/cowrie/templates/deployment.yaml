@@ -4,6 +4,7 @@ metadata:
   name: {{ include "cowrie.fullname" . }}
   labels:
     {{- include "cowrie.labels" . | nindent 4 }}
+    app: app
 spec:
   {{- if not .Values.autoscaling.enabled }}
   replicas: {{ .Values.replicaCount }}
@@ -11,6 +12,7 @@ spec:
   selector:
     matchLabels:
       {{- include "cowrie.selectorLabels" . | nindent 6 }}
+      app: app
   template:
     metadata:
       {{- with .Values.podAnnotations }}
@@ -19,6 +21,7 @@ spec:
       {{- end }}
       labels:
         {{- include "cowrie.selectorLabels" . | nindent 8 }}
+        app: app
     spec:
       {{- with .Values.imagePullSecrets }}
       imagePullSecrets:
@@ -37,14 +40,14 @@ spec:
             - name: http
               containerPort: {{ .Values.service.port }}
               protocol: TCP
-          livenessProbe:
-            httpGet:
-              path: /
-              port: http
-          readinessProbe:
-            httpGet:
-              path: /
-              port: http
+          # livenessProbe:
+          #   httpGet:
+          #     path: /
+          #     port: http
+          # readinessProbe:
+          #   httpGet:
+          #     path: /
+          #     port: http
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
       {{- with .Values.nodeSelector }}

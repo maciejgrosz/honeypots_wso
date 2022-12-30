@@ -8,7 +8,7 @@ image:
   repository: cowrie/cowrie
   pullPolicy: Always
   # Overrides the image tag whose default is the chart appVersion.
-  tag: "latest"
+  tag: "282accc0"
 
 imagePullSecrets: []
 nameOverride: ""
@@ -37,11 +37,11 @@ securityContext: {}
   # runAsUser: 1000
 
 service:
-  type: NodePort
-  port: 22
+  type: ClusterIP
+  port: 2222
 
 ingress:
-  enabled: true
+  enabled: false
   rules:
     - host: example.cluster
       http:
