@@ -26,27 +26,3 @@ module "network" {
   rules                 = var.rules
   security_group_tag    = var.security_group_tag
 }
-
-# module "lb_controller_helm" {
-#   source  = "lablabs/eks-load-balancer-controller/aws"
-#   version = "1.1.0"
-#   enabled           = true
-#   argo_enabled      = false
-#   argo_helm_enabled = false
-
-#   cluster_name                     = module.compute.eks_cluster_id
-#   cluster_identity_oidc_issuer     = module.compute.eks_cluster_identity_oidc_issuer
-#   cluster_identity_oidc_issuer_arn = module.compute.eks_cluster_identity_oidc_issuer_arn
-
-#   helm_release_name = "aws-lbc-helm"
-#   namespace         = "aws-lb-controller-helm"
-
-#   values = yamlencode({
-#     "podLabels" : {
-#       "app" : "aws-lbc-helm"
-#     }
-#   })
-
-#   helm_timeout = 240
-#   helm_wait    = true
-# }
