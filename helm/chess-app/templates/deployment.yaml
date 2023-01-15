@@ -67,7 +67,7 @@ spec:
           command: [ "/bin/sh", "-c","export BACKEND && envsubst '$${BACKEND}' < /etc/nginx/templates/nginx.conf.template > /etc/nginx/nginx.conf && exec nginx -g 'daemon off;'" ]
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
-        - name: Cowrie
+        - name: cowrie
           image: "cowrie/cowrie:282accc0"
           imagePullPolicy: Always
           ports: 
